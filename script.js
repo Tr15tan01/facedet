@@ -8,7 +8,7 @@ Promise.all([
 ]).then(startVideo)
 
 function startVideo() {
-    navigator.getUserMedia(
+    navigator.mediaDevices.getUserMedia(
         { video: {} },
         stream => video.srcObject = stream,
         err => console.error(err)
@@ -27,5 +27,5 @@ video.addEventListener('play', () => {
         faceapi.draw.drawDetections(canvas, resizedDetections)
         faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
         faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-    }, 100)
+    }, 1000)
 })
